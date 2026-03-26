@@ -1,7 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import aboutMeImage from '@/assets/global/AboutMe.png';
-import aboutMeImageAlt from '@/assets/global/Profile -1.png';
+import aboutMeImageAlt from '@/assets/global/AboutMe_Real.jpg';
 
 export function About() {
   const { elementRef, isVisible } = useScrollAnimation();
