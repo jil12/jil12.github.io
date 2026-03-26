@@ -1,0 +1,507 @@
+/* Premium Medium-Style Case Study - Clean, Centered, Elegant */
+
+/* ========================================
+   CASE STUDY LAYOUT
+   ======================================== */
+
+.case-study-container {
+  position: relative;
+  min-height: 100vh;
+  background: var(--canvas);
+  padding-top: 80px;
+}
+
+/* ========================================
+   BACK BUTTON - Top Left Corner
+   ======================================== */
+
+.case-study-back {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  font-family: 'Montserrat', 'Consolas', monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  background: rgba(253, 251, 247, 0.96);
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.case-study-back:hover {
+  color: var(--burnt-orange);
+  border-color: rgba(217, 92, 20, 0.3);
+  background: rgba(253, 251, 247, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ========================================
+   FLOATING TABLE OF CONTENTS
+   ======================================== */
+
+.case-study-toc-left {
+  position: fixed;
+  /* Align TOC right edge with case-study-main left edge (main is 1000px centered) */
+  right: calc((100% + 1000px) / 2);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 200px;
+}
+
+.toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toc-link {
+  background: none;
+  border: none;
+  font-family: 'Montserrat', 'Consolas', monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(26, 26, 26, 0.8);
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.toc-link:hover {
+  color: var(--burnt-orange);
+}
+
+/* Hamburger TOC button - visible only on small screens */
+.case-study-toc-toggle {
+  display: none; /* shown in media query when left TOC is hidden */
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 101;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 2px;
+  background: rgba(253, 251, 247, 0.96);
+  color: var(--text);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.case-study-toc-toggle:hover {
+  color: var(--burnt-orange);
+  border-color: rgba(217, 92, 20, 0.3);
+  background: rgba(253, 251, 247, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* TOC dropdown - appears when hamburger is open on small screens */
+.case-study-toc-dropdown {
+  display: none; /* shown in media query */
+  position: fixed;
+  top: 5rem;
+  right: 1.5rem;
+  z-index: 100;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 1rem;
+  background: rgba(253, 251, 247, 0.98);
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.toc-nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.toc-nav-dropdown .toc-link {
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+}
+
+.toc-nav-dropdown .toc-link:hover {
+  background: rgba(26, 26, 26, 0.04);
+}
+
+/* ========================================
+   MAIN CONTENT - Centered Column
+   ======================================== */
+
+.case-study-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 8rem;
+}
+
+/* ========================================
+   CASE STUDY HEADER
+   ======================================== */
+
+.case-study-header {
+  margin-bottom: 4rem;
+}
+
+.case-study-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* ========================================
+   PROJECT HERO SECTION
+   ======================================== */
+
+.project-hero {
+  margin-bottom: 4rem;
+}
+
+.media-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(26, 26, 26, 0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.hero-media {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.media-caption {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(26, 26, 26, 0.55);
+  margin-top: 1rem;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* ========================================
+   AT A GLANCE - Premium Minimal Design
+   ======================================== */
+
+.at-a-glance {
+  border-top: 1px solid rgba(26, 26, 26, 0.08);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+  padding: 2.5rem 0;
+  margin-bottom: 4rem;
+}
+
+.glance-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2.5rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.04);
+}
+
+.glance-row:last-child {
+  border-bottom: none;
+}
+
+.glance-label {
+  font-family: 'Montserrat', 'Consolas', monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(26, 26, 26, 0.48);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.glance-value {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ========================================
+   NARRATIVE SECTIONS
+   ======================================== */
+
+.narrative-section {
+  margin-bottom: 4rem;
+  scroll-margin-top: 100px;
+}
+
+.section-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+}
+
+.section-content {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(26, 26, 26, 0.88);
+}
+
+.section-content p {
+  margin-bottom: 1.75rem;
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.section-content h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 3rem 0 1.25rem 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.section-content ul,
+.section-content ol {
+  margin: 1.75rem 0;
+  padding-left: 1.75rem;
+}
+
+.section-content li {
+  margin-bottom: 0.875rem;
+  line-height: 1.8;
+}
+
+.section-content blockquote {
+  border-left: 3px solid var(--burnt-orange);
+  padding-left: 1.75rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  color: rgba(26, 26, 26, 0.75);
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.section-content img {
+  width: 100%;
+  height: auto;
+  margin: 3rem 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - Tablet
+   ======================================== */
+
+@media (max-width: 1200px) {
+  /* Hide left TOC on smaller screens */
+  .case-study-toc-left {
+    display: none;
+  }
+
+  /* Show hamburger TOC button on small screens */
+  .case-study-toc-toggle {
+    display: flex;
+  }
+
+  .case-study-toc-dropdown {
+    display: block;
+  }
+  
+  .case-study-main {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .case-study-main {
+    padding: 2.5rem 2rem 6rem;
+  }
+
+  .case-study-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-content {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-study-main {
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .case-study-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-content {
+    font-size: 1rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.375rem;
+  }
+
+  .section-content blockquote {
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+  }
+
+  .case-study-back {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.625rem 1rem;
+    font-size: 1rem;
+  }
+
+  .case-study-toc-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .case-study-toc-dropdown {
+    top: 4.5rem;
+    right: 1rem;
+    left: auto;
+    min-width: 180px;
+  }
+
+  .glance-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.125rem 0;
+  }
+
+  .glance-label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-study-main {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .case-study-header {
+    margin-bottom: 3rem;
+  }
+
+  .case-study-title {
+    font-size: 1.75rem;
+  }
+
+  .project-hero {
+    margin-bottom: 3rem;
+  }
+
+  .at-a-glance {
+    padding: 2rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-content {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+
+  .section-content h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .section-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-content blockquote {
+    font-size: 1rem;
+    margin: 2rem 0;
+  }
+
+  .case-study-back {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+  }
+
+  .case-study-toc-toggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .case-study-toc-dropdown {
+    top: 4rem;
+    right: 0.75rem;
+    left: auto;
+    padding: 1rem;
+  }
+
+  .toc-link {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .toc-link,
+  .case-study-back,
+  .case-study-toc-toggle {
+    transition: none;
+  }
+}
