@@ -19,11 +19,33 @@ export interface CaseStudyMetadata {
 
 interface CaseStudyLayoutProps {
   title: string;
-  heroImage: string;
+  heroImage:
+    | string
+    | {
+        sources?: Array<{ type: string; srcset: string }>;
+        img: { src: string; w?: number; h?: number; width?: number; height?: number };
+      };
   heroCaption: string;
   metadata: CaseStudyMetadata;
   sections: CaseStudySection[];
   children: ReactNode;
+}
+
+function isPicture(
+  heroImage: CaseStudyLayoutProps['heroImage'],
+): heroImage is Exclude<CaseStudyLayoutProps['heroImage'], string> {
+  return typeof heroImage === 'object' && heroImage !== null && 'img' in heroImage;
+}
+
+function normalizeSources(
+  sources: unknown,
+): Array<{ type?: string; srcset: string }> {
+  if (Array.isArray(sources)) return sources as Array<{ type?: string; srcset: string }>;
+  if (typeof sources === 'string') return [{ srcset: sources }];
+  if (sources && typeof sources === 'object' && 'srcset' in (sources as Record<string, unknown>)) {
+    return [sources as { type?: string; srcset: string }];
+  }
+  return [];
 }
 
 export function CaseStudyLayout({
@@ -36,6 +58,10 @@ export function CaseStudyLayout({
 }: CaseStudyLayoutProps) {
   const [tocOpen, setTocOpen] = useState(false);
   const tocRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
 
   useEffect(() => {
     if (!tocOpen) return;
@@ -126,11 +152,31 @@ export function CaseStudyLayout({
         {/* Project Hero */}
         <section className="project-hero">
           <div className="media-container">
-            <ImageWithFallback 
-              src={heroImage} 
-              alt={title}
-              className="hero-media"
-            />
+            {isPicture(heroImage) ? (
+              <picture>
+                {normalizeSources((heroImage as any).sources).map((s) => (
+                  <source key={`${s.type ?? 'img'}:${s.srcset}`} type={s.type} srcSet={s.srcset} />
+                ))}
+                <ImageWithFallback
+                  src={(heroImage as any).img?.src ?? (heroImage as any).src ?? ''}
+                  alt={title}
+                  className="hero-media"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  sizes="(max-width: 1024px) 94vw, 860px"
+                />
+              </picture>
+            ) : (
+              <ImageWithFallback
+                src={heroImage}
+                alt={title}
+                className="hero-media"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            )}
           </div>
           {heroCaption && <p className="media-caption">{heroCaption}</p>}
         </section>

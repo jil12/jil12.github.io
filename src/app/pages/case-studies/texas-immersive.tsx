@@ -1,10 +1,11 @@
+import React from 'react';
 import {
   CaseStudyLayout,
   NarrativeSection,
   CaseStudySection,
   CaseStudyMetadata
 } from '../../components/CaseStudyLayout';
-import heroImage from '@/assets/projects/texas-immersive/HarmonicSea.png';
+import heroImage from '@/assets/projects/texas-immersive/HarmonicSea.png?format=avif;webp&w=960;1600&q=70&as=picture';
 
 const sections: CaseStudySection[] = [
   { id: 'overview', title: 'Project Overview' },

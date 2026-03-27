@@ -1,8 +1,3 @@
-declare module '@/assets/*' {
-  const src: string;
-  export default src;
-}
-
 declare module '*.JPG' {
   const src: string;
   export default src;
@@ -51,5 +46,21 @@ declare module '*.pdf' {
 declare module '*.PDF' {
   const src: string;
   export default src;
+}
+
+declare module '*?as=picture' {
+  const picture: {
+    sources?: Array<{ type: string; srcset: string }>;
+    img: { src: string; width?: number; height?: number; w?: number; h?: number };
+  };
+  export default picture;
+}
+
+declare module '*&as=picture' {
+  const picture: {
+    sources?: Array<{ type: string; srcset: string }>;
+    img: { src: string; width?: number; height?: number; w?: number; h?: number };
+  };
+  export default picture;
 }
 

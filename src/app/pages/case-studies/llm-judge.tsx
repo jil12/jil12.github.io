@@ -1,10 +1,11 @@
+import React from 'react';
 import {
   CaseStudyLayout,
   NarrativeSection,
   CaseStudySection,
   CaseStudyMetadata,
 } from '../../components/CaseStudyLayout';
-import heroImage from '@/assets/projects/llm-judge/FineTuning.png';
+import heroImage from '@/assets/projects/llm-judge/FineTuning.png?format=avif;webp&w=960;1600&q=65&as=picture';
 
 const sections: CaseStudySection[] = [
   { id: 'overview', title: 'Project Overview' },

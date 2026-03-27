@@ -14,7 +14,7 @@ import {
   CarouselPrevious,
 } from '../../components/ui/carousel';
 
-import audioBookHeroImg from '@/assets/projects/datafeel-haptics/IMG_1703.JPG';
+import audioBookHeroImg from '@/assets/projects/datafeel-haptics/HeroImg.png?format=avif;webp&w=960;1600&q=70&as=picture';
 import audioBookAppImg131118 from '@/assets/projects/datafeel-haptics/2025-08-27 131118.png';
 import audioBookAppImg131149 from '@/assets/projects/datafeel-haptics/2025-08-27 131149.png';
 import audioBookAppImg131207 from '@/assets/projects/datafeel-haptics/2025-08-27 131207.png';
@@ -24,7 +24,7 @@ import audioBookAppImg131347 from '@/assets/projects/datafeel-haptics/2025-08-27
 import audioBookAppImg131511 from '@/assets/projects/datafeel-haptics/2025-08-27 131511.png';
 import audioBookAppImg131639 from '@/assets/projects/datafeel-haptics/2025-08-27 131639.png';
 
-import plushBearHardwareImg from '@/assets/projects/datafeel-haptics/HapticBear.jpg';
+import plushBearHardwareImg from '@/assets/projects/datafeel-haptics/HapticBear.jpg?format=avif;webp&w=960;1600&q=75&as=picture';
 
 const audioBookAppImgs = [
   audioBookAppImg131118,
@@ -53,6 +53,17 @@ const metadata: CaseStudyMetadata = {
   team: 'Startup team (cross-functional)',
   tools: ['C#', 'Avalonia UI', 'CAD + 3D printing', 'Notion', 'Miro'],
 };
+
+function normalizeSources(
+  sources: unknown,
+): Array<{ type?: string; srcset: string }> {
+  if (Array.isArray(sources)) return sources as Array<{ type?: string; srcset: string }>;
+  if (typeof sources === 'string') return [{ srcset: sources }];
+  if (sources && typeof sources === 'object' && 'srcset' in (sources as Record<string, unknown>)) {
+    return [sources as { type?: string; srcset: string }];
+  }
+  return [];
+}
 
 export function DataFeelHaptics() {
   const audioCarouselApiRef = React.useRef<any>(null);
@@ -174,11 +185,19 @@ export function DataFeelHaptics() {
 
         {/* Visual 3: The Plush Bear Hardware */}
         <div className="case-study-media-container mt-6 mb-4">
-          <img
-            src={plushBearHardwareImg}
-            alt="Physical prototype of the B2C plush bear retrofitted with internal haptic hardware"
-            className="w-full rounded-lg shadow-md border border-gray-100 bg-gray-50"
-          />
+          <picture>
+            {normalizeSources((plushBearHardwareImg as any).sources).map((s) => (
+              <source key={`${s.type ?? 'img'}:${s.srcset}`} type={s.type} srcSet={s.srcset} />
+            ))}
+            <img
+              src={(plushBearHardwareImg as any).img?.src ?? (plushBearHardwareImg as any).src ?? ''}
+              alt="Physical prototype of the B2C plush bear retrofitted with internal haptic hardware"
+              className="w-full rounded-lg shadow-md border border-gray-100 bg-gray-50"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 1024px) 94vw, 860px"
+            />
+          </picture>
           <p className="text-sm text-gray-500 mt-2 text-center">
             FIG 3.0: Physical prototyping for the B2C pivot—retrofitting plush inventory with CAD-modeled haptic hardware.
           </p>

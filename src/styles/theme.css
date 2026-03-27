@@ -1,41 +1,48 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Portfolio Custom Colors - Bauhaus Primary Palette */
+  /* Portfolio Custom Colors - Pastel Palette */
+  --pastel-1: #90d8b2;
+  --pastel-2: #8dd2dd;
+  --pastel-3: #8babf1; /* Main color */
+  --pastel-4: #8b95f6;
+  --pastel-5: #9b8bf4;
+
   --canvas: #fafafa;
-  --text: #1A1A1A;
-  --burnt-orange: #BF551C;
-  --deep-purple: #5A3286;
-  --mustard-yellow: #E5B113;
-  --primary-red: #E63946;
-  --primary-blue: #457B9D;
+  --text: #000000;
+  --burnt-orange: var(--pastel-3);
+  --deep-purple: var(--pastel-5);
+  --mustard-yellow: var(--pastel-1);
+  --primary-red: var(--pastel-4);
+  --primary-blue: var(--pastel-2);
+  --ui-radius: 10px;
   
   /* Original theme vars */
-  --font-size: 16px;
-  --background: #fafafa;
-  --foreground: oklch(0.145 0 0);
+  --font-size: 18px;
+  --background: var(--canvas);
+  --foreground: #000000;
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
+  --primary: var(--pastel-3);
+  --primary-foreground: #000000;
+  --secondary: var(--pastel-2);
+  --secondary-foreground: #000000;
+  --muted: #eaf0ff;
+  --muted-foreground: #1f1f1f;
+  --accent: var(--pastel-1);
+  --accent-foreground: #000000;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
   --input-background: #f3f3f5;
   --switch-background: #cbced4;
-  --font-weight-bold: 700;
-  --font-weight-medium: 500;
+  --font-weight-bold: 800;
+  --font-weight-medium: 700;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
+  --ring: var(--pastel-4);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -185,7 +192,7 @@
 
   button {
     font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
     line-height: 1.5;
   }
 

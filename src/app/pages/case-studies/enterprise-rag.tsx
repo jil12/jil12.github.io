@@ -6,7 +6,8 @@ import {
   CaseStudyMetadata,
 } from '../../components/CaseStudyLayout';
 
-import architectureDiagramImg from '@/assets/projects/enterprise-rag/SystemArchitecture.jpg';
+import ragChatbotHeroImg from '@/assets/projects/enterprise-rag/RAG_Chatbot.png';
+import architectureDiagramImg from '@/assets/projects/enterprise-rag/SystemArchitecture.png';
 import averageScoreChartImg from '@/assets/projects/enterprise-rag/Average Score by Models.png';
 
 const projectDemoVideoEmbed =
@@ -37,8 +38,8 @@ export function EnterpriseRag() {
   return (
     <CaseStudyLayout
       title="Enterprise RAG Knowledge Assistant"
-      heroImage={architectureDiagramImg}
-      heroCaption="FIG 1.0: Dual-Path Hybrid Routing System Architecture"
+      heroImage={ragChatbotHeroImg}
+      heroCaption="FIG 1.0: Enterprise RAG Chatbot Interface"
       metadata={metadata}
       sections={sections}
     >
@@ -85,6 +86,16 @@ export function EnterpriseRag() {
             cross-role data leakage.
           </li>
         </ul>
+        <div className="case-study-media-container mt-6 mb-4">
+          <img
+            src={architectureDiagramImg}
+            alt="System architecture diagram showing SQL and RAG query routing paths"
+            className="w-full rounded-lg shadow-md border border-gray-100"
+          />
+          <p className="text-sm text-gray-500 mt-2 text-center">
+            FIG 2.0: Dual-Path Hybrid Routing System Architecture
+          </p>
+        </div>
       </NarrativeSection>
 
       <NarrativeSection id="evaluation" title="Automated Evaluation Pipeline">
@@ -118,7 +129,7 @@ export function EnterpriseRag() {
             className="w-full rounded-lg shadow-md border border-gray-100"
           />
           <p className="text-sm text-gray-500 mt-2 text-center">
-            FIG 2.0: Automated Evaluation Pipeline Results - Average Score by Models
+            FIG 3.0: Automated Evaluation Pipeline Results - Average Score by Models
           </p>
         </div>
       </NarrativeSection>

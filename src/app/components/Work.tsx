@@ -1,12 +1,12 @@
 import React from 'react';
 import { ProjectCard } from './ProjectCard';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import hapticDemoImg from '@/assets/projects/datafeel-haptics/IMG_1703.JPG';
-import ezLineImg from '@/assets/projects/ez-line/1 v13.png';
-import enterpriseRagImg from '@/assets/projects/enterprise-rag/RAG_Chatbot.png';
-import llmJudgeImg from '@/assets/projects/llm-judge/FineTuning.png';
-import texasImmersiveImg from '@/assets/projects/texas-immersive/HarmonicSea.png';
-import tagTrailsImg from '@/assets/projects/tagtrails-ux/TagTrails.png';
+import hapticDemoImg from '@/assets/projects/datafeel-haptics/HapticEditor.png?format=avif;webp&w=480;960&q=70&as=picture';
+import ezLineImg from '@/assets/projects/ez-line/1 v13.png?format=avif;webp&w=480;960&q=70&as=picture';
+import enterpriseRagImg from '@/assets/projects/enterprise-rag/RAG_Chatbot.png?format=avif;webp&w=480;960&q=75&as=picture';
+import llmJudgeImg from '@/assets/projects/llm-judge/FineTuning.png?format=avif;webp&w=480;960&q=65&as=picture';
+import texasImmersiveImg from '@/assets/projects/texas-immersive/HarmonicSea.png?format=avif;webp&w=480;960&q=70&as=picture';
+import tagTrailsImg from '@/assets/projects/tagtrails-ux/TagTrails.png?format=avif;webp&w=480;960&q=65&as=picture';
 
 const projectCards = [
   {
@@ -17,7 +17,7 @@ const projectCards = [
       { label: 'Product Strategy', type: 'strategy' as const },
       { label: 'Full-Stack C#', type: 'development' as const },
     ],
-    imageUrl: hapticDemoImg,
+    image: hapticDemoImg,
     caseStudyLink: '/case-study/datafeel-haptics',
   },
   {
@@ -28,7 +28,7 @@ const projectCards = [
       { label: 'Data Security', type: 'strategy' as const },
       { label: 'Prompt Engineering', type: 'development' as const },
     ],
-    imageUrl: enterpriseRagImg,
+    image: enterpriseRagImg,
     caseStudyLink: '/case-study/enterprise-rag',
   },
   {
@@ -39,7 +39,7 @@ const projectCards = [
       { label: 'Technical PM', type: 'strategy' as const },
       { label: 'State Machines', type: 'development' as const },
     ],
-    imageUrl: texasImmersiveImg,
+    image: texasImmersiveImg,
     caseStudyLink: '/case-study/texas-immersive',
   },
   {
@@ -50,7 +50,7 @@ const projectCards = [
       { label: 'Model Evaluation', type: 'research' as const },
       { label: 'AI Strategy', type: 'strategy' as const },
     ],
-    imageUrl: llmJudgeImg,
+    image: llmJudgeImg,
     caseStudyLink: '/case-study/llm-judge',
   },
   {
@@ -61,7 +61,7 @@ const projectCards = [
       { label: 'Statistical Modeling', type: 'development' as const },
       { label: 'Data Analytics', type: 'strategy' as const },
     ],
-    imageUrl: tagTrailsImg,
+    image: tagTrailsImg,
     caseStudyLink: '/case-study/tagtrails-ux',
   },
   {
@@ -72,7 +72,7 @@ const projectCards = [
       { label: 'Revenue Modeling', type: 'strategy' as const },
       { label: 'Accessibility', type: 'design' as const },
     ],
-    imageUrl: ezLineImg,
+    image: ezLineImg,
     caseStudyLink: '/case-study/ez-line',
   },
 ];
@@ -99,7 +99,7 @@ export function Work() {
               title={project.title}
               subtitle={project.subtitle}
               tags={project.tags}
-              imageUrl={project.imageUrl}
+              image={project.image}
               shapeIndex={index}
               caseStudyLink={project.caseStudyLink}
             />

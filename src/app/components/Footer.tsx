@@ -48,15 +48,6 @@ export function Footer() {
               <Github size={32} stroke="currentColor" />
             </a>
 
-            <a
-              href={resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Preview resume PDF in a new tab"
-              className="hover:text-[var(--burnt-orange)] transition-colors"
-            >
-              <FileText size={32} stroke="currentColor" />
-            </a>
           </div>
         </div>
       </div>

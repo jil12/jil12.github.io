@@ -28,7 +28,7 @@
   padding: 0.75rem 1.25rem;
   background: rgba(253, 251, 247, 0.96);
   border: 1px solid rgba(26, 26, 26, 0.08);
-  border-radius: 2px;
+  border-radius: var(--ui-radius);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -36,7 +36,7 @@
 
 .case-study-back:hover {
   color: var(--burnt-orange);
-  border-color: rgba(217, 92, 20, 0.3);
+  border-color: rgba(139, 171, 241, 0.45);
   background: rgba(253, 251, 247, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
@@ -66,8 +66,8 @@
   border: none;
   font-family: 'Montserrat', 'Consolas', monospace;
   font-size: 0.8rem;
-  font-weight: 400;
-  color: rgba(26, 26, 26, 0.8);
+  font-weight: 700;
+  color: rgba(26, 26, 26, 0.6);
   text-align: left;
   padding: 0.625rem 0.75rem;
   cursor: pointer;
@@ -91,7 +91,7 @@
   height: 44px;
   padding: 0;
   border: 1px solid rgba(26, 26, 26, 0.08);
-  border-radius: 2px;
+  border-radius: var(--ui-radius);
   background: rgba(253, 251, 247, 0.96);
   color: var(--text);
   cursor: pointer;
@@ -104,7 +104,7 @@
 
 .case-study-toc-toggle:hover {
   color: var(--burnt-orange);
-  border-color: rgba(217, 92, 20, 0.3);
+  border-color: rgba(139, 171, 241, 0.45);
   background: rgba(253, 251, 247, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
@@ -121,7 +121,7 @@
   padding: 1rem;
   background: rgba(253, 251, 247, 0.98);
   border: 1px solid rgba(26, 26, 26, 0.08);
-  border-radius: 2px;
+  border-radius: var(--ui-radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -135,7 +135,7 @@
 
 .toc-nav-dropdown .toc-link {
   padding: 0.75rem 1rem;
-  border-radius: 2px;
+  border-radius: var(--ui-radius);
 }
 
 .toc-nav-dropdown .toc-link:hover {
@@ -163,7 +163,7 @@
 .case-study-title {
   font-family: 'Manrope', sans-serif;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text);
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -182,7 +182,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--ui-radius);
   background: rgba(26, 26, 26, 0.02);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -197,7 +197,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  color: rgba(26, 26, 26, 0.55);
+  color: rgba(26, 26, 26, 0.6);
   margin-top: 1rem;
   text-align: center;
   font-style: italic;
@@ -233,7 +233,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgba(26, 26, 26, 0.48);
+  color: rgba(26, 26, 26, 0.6);
   min-width: 120px;
   flex-shrink: 0;
 }
@@ -258,7 +258,7 @@
 .section-title {
   font-family: 'Manrope', sans-serif;
   font-size: 2.25rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
   letter-spacing: -0.025em;
   line-height: 1.2;
@@ -284,7 +284,7 @@
 .section-content h3 {
   font-family: 'Manrope', sans-serif;
   font-size: 1.625rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
   margin: 3rem 0 1.25rem 0;
   line-height: 1.3;
@@ -315,8 +315,8 @@
 .section-content img {
   width: 100%;
   height: auto;
-  margin: 3rem 0;
-  border-radius: 2px;
+  margin: 0;
+  border-radius: var(--ui-radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 

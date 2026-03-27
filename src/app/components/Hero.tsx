@@ -1,7 +1,8 @@
 import { ArrowDown } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 
-const titles = ['developer', 'product designer', 'product manager', 'XR explorer'] as const;
+const titles = ['Product Manager', 'Design Engineer', 'UX Designer', 'XR Explorer'] as const;
+const titleColorClasses = ['hero-title-color-1', 'hero-title-color-2', 'hero-title-color-3', 'hero-title-color-4'] as const;
 
 export function Hero() {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -81,7 +82,7 @@ export function Hero() {
               Hi, I'm <span className="hero-name">Jiyi</span>, a
             </h1>
             <div className="hero-title-line">
-              <span className="hero-title-animated">
+              <span className={`hero-title-animated ${titleColorClasses[currentTitleIndex]}`}>
                 {displayedText}
                 <span className="hero-cursor"></span>
               </span>
@@ -100,7 +101,7 @@ export function Hero() {
               className="btn-primary"
             >
               See Projects
-              <ArrowDown className="btn-icon" size={16} strokeWidth={2.5} />
+              <ArrowDown className="btn-icon" size="1em" strokeWidth={2.5} />
             </button>
           </div>
         </div>
